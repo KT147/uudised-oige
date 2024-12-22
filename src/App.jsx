@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <img src="https://static.vecteezy.com/system/resources/previews/010/367/865/non_2x/simple-shoe-shop-logo-in-line-style-vector.jpg" style={{ height:"300px"}}></img>
+      <img src="/kingapood.jpeg" style={{ height:"300px"}}></img>
       <div>
       <Link to="/">
           <button>Avalehele</button>

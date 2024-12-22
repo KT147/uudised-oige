@@ -1,19 +1,28 @@
-
+import { useState } from "react"
 
 function Kontakt() {
+  const [kontakt, n2itakontakt] = useState("");
   return (
     <div>
-      <br></br>
-      <div>Võta meiega ühendust</div>
-      <br/>
-      <div>Kuressaare Auriga Keskus</div>
-      <br/>
-      <div>Tallinna 88</div>
-      <br/>
-      <div>93812 Kuressaare</div>
-      <br/>
-      <div>tel: 51515151</div>
+      <div>
+        <div>Võta meiega ühendust</div>
+        <br /> <br />
+        <div>Liisi Kass</div>
+        <div>Juhataja</div>
+        <button onClick={() => n2itakontakt ("52525252")}>Võta ühendust</button>
+        <br /> <br />
+        <div>Anna Käpp</div>
+        <div>Turundusspetsialist</div>
+        <button onClick={() => n2itakontakt ("52533583")}>Võta ühendust</button>
+        <br /><br />
+        <div>Artul Kartul</div>
+        <div>Klienditeenindaja</div>
+        <button onClick={() => n2itakontakt ("5464544")}>Võta ühendust</button>
+        <br /><br />
+        { kontakt !== "" && <div>Tema kontakt: {kontakt}</div>}
       </div>
+    </div>
+
   )
 }
 
