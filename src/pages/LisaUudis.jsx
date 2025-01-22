@@ -1,7 +1,8 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 
 
 function LisaUudis() {
+    const [sonum, setSonum] = useState("")
 
     const uudiseRef = useRef()
 
@@ -17,11 +18,23 @@ function LisaUudis() {
     // const uudised = JSON.parse(localStorage.getItem("uudised")) ||[];
     // uudised.push(uudiseRef.current.value);
     // localStorage.setItem("uudised", JSON.stringify (uudised))
+
+    const kontrolli = () => {
+      setSonum("")
+
+      if (uudiseRef.current.value.charAt(0) === uudiseRef.current.value.charAt(0).toLowerCase()){ 
+        setSonum ("Uudis peab algama suure algustähega")
+        }
+      if (uudiseRef.current.value.includes("  ")) {
+        setSonum ("Kahte tühikut ei tohi olla")
+      }
+    }
     
   return (
     <div>
+        {sonum} <br />
         <label>Uudise nimi</label>
-        <input ref={uudiseRef} type="text" />
+        <input onChange={kontrolli} ref={uudiseRef} type="text" />
         <button onClick={LisaUusUudis}>Lisa uudis</button>
     </div>
   )
