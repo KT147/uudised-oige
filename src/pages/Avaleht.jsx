@@ -1,16 +1,27 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Avaleht() {
+  const [posts, setPosts] = useState ([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(res=> res.json())
+    .then(json=> setPosts(json))
+  }, []);
+
   return (
     <div>
-      <br></br>
-      <div>Praegu on käimas <b>SUUR ALLAHINDLUS</b></div>
-      <br></br>
-      <div><b><u>KOGU KAUP KUNI -99%</u></b></div>
-      <br></br>
-      <div><b>SEE EI OLE PETTUS EGA UNI!</b></div>
-      <br></br>
-      <img src="https://arktura.com/wp-content/uploads/2020/05/Arktura-Vapor-Trail-Feature-Shoe-Store-Las-VegasNV_Web_2-1-scaled.jpg" style= {{height: "500px"}}></img>
-
+      {posts.map(post=>
+      <div key={post.body}>
+        <div><i>{post.userId}</i></div>
+        <div><u>{post.id}</u></div>
+        <div><b>{post.title}</b></div>
+        <div>{post.body}</div>
+        <Link to={"/kasutaja-postitus/" + post.userId}><button>Kõik kasutaja postitused</button></Link>
+        <Link to={"/yks-postitus/" + post.id}><button>Vaata postitust</button></Link>
+        </div>
+      )}
     </div>
   )
 }

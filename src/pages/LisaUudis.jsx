@@ -14,7 +14,7 @@ function LisaUudis() {
         localStorage.setItem("uudised", uudised);
 
     }
-
+    // == täpselt sama, mis let'iga
     // const uudised = JSON.parse(localStorage.getItem("uudised")) ||[];
     // uudised.push(uudiseRef.current.value);
     // localStorage.setItem("uudised", JSON.stringify (uudised))
